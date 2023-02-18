@@ -1,5 +1,6 @@
 import './App.css';
 
+import { ChakraBaseProvider } from '@chakra-ui/react';
 import { Route, Routes } from 'react-router-dom';
 
 import Footer from './components/Footer';
@@ -12,33 +13,48 @@ import Users from './pages/Users';
 
 const App = () => {
   return (
-    <div className="App">
-      <Header />
+    <ChakraBaseProvider>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/users"
+            element={
+              <Layout>
+                <Users />
+              </Layout>
+            }
+          />
+          <Route
+            path="/gallery"
+            element={
+              <Layout>
+                <Gallery />
+              </Layout>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <Layout>
+                <About />
+              </Layout>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <main>
+                <h2>404 Not found</h2>
+              </main>
+            }
+          />
+        </Routes>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/users"
-          element={
-            <Layout>
-              <Users />
-            </Layout>
-          }
-        />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/about" element={<About />} />
-        <Route
-          path="*"
-          element={
-            <main>
-              <h2>404 Not found</h2>
-            </main>
-          }
-        />
-      </Routes>
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </ChakraBaseProvider>
   );
 };
 

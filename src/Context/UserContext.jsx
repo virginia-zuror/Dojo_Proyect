@@ -8,7 +8,7 @@ export const UserContextProvider = ({ children }) => {
 
   const login = (data) => {
     setUser(data);
-    navigate('/users');
+    /* navigate('/users'); */ //quitamos que abra automaticamente users.
     localStorage.setItem('user', data); //al hacer login tambien setea en la memoria local el usuario
   };
 

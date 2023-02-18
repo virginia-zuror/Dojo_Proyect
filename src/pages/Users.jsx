@@ -1,5 +1,6 @@
 import './Users.css';
 
+import { Text } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
@@ -16,15 +17,24 @@ const Users = () => {
   }, []);
 
   return (
-    <main className="users">
-      {names.map((person) => (
-        <figure key={person.id}>
-          <h3>{person.name}</h3>
-          <img src={person.avatar} alt={person.name} />
-          <p>{person.age} yrs</p>
-          <h4>{person.premium && 'Is premium'}</h4>
-        </figure>
-      ))}
+    <main>
+      <Text align="center" padding="20px" mb={6} fontSize="3xl">
+        Our alumns
+      </Text>
+      <div className="users">
+        {names.map((person) => (
+          <figure key={person.id}>
+            <Text fontSize="md" fontWeight="bold">
+              {person.name}
+            </Text>
+            <img src={person.avatar} alt={person.name} />
+            <p>{person.age} yrs</p>
+            <Text fontSize="md" fontWeight="bold" textTransform="uppercase">
+              {person.premium ? 'Champion' : 'In training'}
+            </Text>
+          </figure>
+        ))}
+      </div>
     </main>
   );
 };
