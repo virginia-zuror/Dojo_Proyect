@@ -7,9 +7,11 @@ const About = () => {
   return (
     <Box
       display="flex"
+      flexWrap="wrap"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
+      paddingBottom="4rem"
     >
       <Text
         textAlign="center"
@@ -20,7 +22,7 @@ const About = () => {
       >
         Next activities
       </Text>
-      <Grid templateColumns="repeat(3, 300px)" gap={100}>
+      <Grid templateColumns="repeat(auto-fit, minmax(200px, 1fr))" gap={100} padding="2rem">
         <Box
           display="flex"
           flexDirection="column"

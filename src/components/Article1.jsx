@@ -11,8 +11,8 @@ const Article1 = () => {
       justifyContent="center"
       paddingTop="2rem"
       paddingBottom="5rem"
-      paddingLeft="8rem"
-      paddingRight="8rem"
+      paddingLeft="10%"
+      paddingRight="10%"
     >
       <Text fontSize="2xl">We are open!</Text>
       <Text textAlign="justify">

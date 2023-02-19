@@ -15,6 +15,7 @@ const Home = () => {
       <Box
         width="100%"
         display="flex"
+        flexWrap="wrap"
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
@@ -24,6 +25,7 @@ const Home = () => {
           bgClip="text"
           fontSize="6xl"
           fontWeight="extrabold"
+          textAlign="center"
         >
           Welcome to our Dojo!
         </Text>
@@ -33,8 +35,11 @@ const Home = () => {
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
+            flexWrap="wrap"
           >
-            <Text fontSize={18}>Login to have complete access.</Text>
+            <Text fontSize="xl" textAlign="center">
+              Login to have complete access.
+            </Text>
             <input type="text" ref={inputRef} placeholder="Enter a nickname" />
             <button
               onClick={() => {
@@ -48,18 +53,25 @@ const Home = () => {
       </Box>
 
       <Box
+        width="100%"
         display="flex"
+        flexWrap="wrap"
         flexDirection="column"
         gap="2rem"
-        alignItems="center"
+        alignItems="strecht"
         justifyContent="center"
       >
-        <Heading fontSize="3xl" fontWeight={600} padding={30}>
+        <Heading fontSize="3xl" fontWeight={600} padding={30} textAlign="center">
           News
         </Heading>
-        <Grid templateColumns="repeat(2, 300px)" gap={100} paddingBottom="20px">
+        <Grid
+          templateColumns="repeat(auto-fit, minmax(300px, 1fr))"
+          gap={50}
+          paddingBottom="20px"
+          alignContent="center"
+        >
           <Box
-            width={300}
+            width="100%"
             display="flex"
             flexDir="column"
             alignItems="center"
@@ -68,6 +80,7 @@ const Home = () => {
             background="linear-gradient(90deg, #0700b8 0%, #00ff88 100%)"
             padding={5}
             borderRadius={10}
+            flexWrap="wrap"
           >
             <Heading fontSize="2xl" color="#FAF9F8">
               <Link to={`/article1`}>We are open!</Link>
@@ -84,7 +97,7 @@ const Home = () => {
             </Text>
           </Box>
           <Box
-            width={300}
+            width="100%"
             display="flex"
             flexDir="column"
             alignItems="center"
@@ -93,6 +106,7 @@ const Home = () => {
             background="linear-gradient(90deg, #0700b8 0%, #00ff88 100%)"
             padding={5}
             borderRadius={10}
+            flexWrap="wrap"
           >
             <Heading fontSize="2xl" color="#FAF9F8">
               <Link to={`/article2`}>Shotokan Karate</Link>
@@ -112,16 +126,19 @@ const Home = () => {
         <Image
           src="https://res.cloudinary.com/do7bnejaz/image/upload/v1676811403/CobraKai%20_Gym/s-2_kb9lp7.png"
           alt="sensei"
+          objectFit="contain"
         />
-        <Heading fontSize="xl" fontWeight="bold">
+        <Heading fontSize="xl" fontWeight="bold" textAlign="center">
           Sensei John Lawrence
         </Heading>
         <Box
           paddingBottom={100}
           display="flex"
+          flexWrap="wrap"
           flexDirection="column"
           alignItems="center"
           justifyContent="center"
+          textAlign="center"
         >
           <Text>Contact us:</Text>
           <Text>(+34) 4-8-15-16-23-42</Text>

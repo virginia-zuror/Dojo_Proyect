@@ -24,7 +24,11 @@ const Gallery = () => {
 
   return (
     <main>
-      <Grid templateColumns="repeat(4, 1fr)" gap={6} paddingBottom="100px">
+      <Grid
+        templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
+        gap={6}
+        paddingBottom="100px"
+      >
         {photos.map((photo) => (
           <GridItem w="100%" h="300" key={photo.id}>
             <Image
@@ -33,6 +37,7 @@ const Gallery = () => {
               w="100%"
               h="100%"
               objectFit="cover"
+              borderRadius={20}
             />
             <Text textAlign="center" fontSize="md" fontWeight="semibold">
               {photo.created_at.slice(0, 10)}
