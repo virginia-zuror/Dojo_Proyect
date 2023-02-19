@@ -1,43 +1,25 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
-const themes = {
-  dark: {
-    backgroundColor: 'black',
-    color: 'white',
-  },
-  light: {
-    backgroundColor: 'white',
-    color: 'black',
-  },
-};
-
-const initialState = {
-  dark: false,
-  theme: themes.light,
-  toggle: () => {},
-};
-export const ThemeContext = createContext(initialState);
+export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [dark, setDark] = useState(false);
-
-  useEffect(() => {
-    const darkTheme = localStorage.getItem('dark') === 'true';
-    setDark(darkTheme);
-  }, [dark]);
+  const [color, setColor] = useState(false);
 
   const changeTheme = () => {
-    const darkTheme = !dark;
-    localStorage.setItem('dark', JSON.stringify(darkTheme));
-    setDark(darkTheme);
+    if (color === 'dark') {
+      setColor('light');
+      localStorage.setItem('color', 'light');
+    } else {
+      setColor('dark');
+      localStorage.setItem('color', 'dark');
+    }
   };
-
-  const themeActive = dark ? themes.dark : themes.light;
+  useEffect(() => {
+    document.body.className = color;
+  }, [color]);
 
   return (
-    <ThemeContext.Provider value={{ themeActive, dark, changeTheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={{ changeTheme }}>{children}</ThemeContext.Provider>
   );
 };
 export const ThemeFunction = () => {

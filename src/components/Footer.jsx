@@ -3,14 +3,13 @@ import './Footer.css';
 import { Box, Image, Text } from '@chakra-ui/react';
 import React from 'react';
 
-/* import { ThemeFunction } from '../Context/ColorTheme'; */
+import { ThemeFunction } from '../Context/ColorTheme';
 
 const Footer = () => {
- /*  const { changeTheme } = ThemeFunction(); */
+  const { changeTheme } = ThemeFunction();
 
   return (
     <Box
-      backgroundColor="WindowFrame"
       display="flex"
       flexDirection="row"
       padding="1rem"
@@ -19,16 +18,26 @@ const Footer = () => {
       w="100%"
       alignItems="center"
       justifyContent="center"
+      gap={5}
+      bgGradient="radial-gradient( circle 610px at 5.2% 51.6%,  rgba(5,8,114,1) 0%, rgba(7,3,53,1) 97.5% )"
     >
-     {/*  <button onClick={() => changeTheme()}>
-        <Image
-          height="40px"
-          src="https://res.cloudinary.com/do7bnejaz/image/upload/v1676756529/CobraKai%20_Gym/Cobra-Kai-Emblema_rw71dz.png"
-        />
-      </button> */}
-      <Text fontSize="lg" color="whiteAlpha.900" display="flex" alignItems="center">
-        Powered by Virginia <Text fontSize="2xl">🐱‍👤</Text>
-      </Text>
+      <button className="btnColor" onClick={() => changeTheme()}>
+        {localStorage.getItem('color') === 'light' ? (
+          <Image
+            height="45px"
+            src="https://res.cloudinary.com/do7bnejaz/image/upload/v1676756529/CobraKai%20_Gym/Cobra-Kai-Emblema_rw71dz.png"
+          />
+        ) : (
+          <Image
+            height="50px"
+            src="https://res.cloudinary.com/do7bnejaz/image/upload/v1676756942/CobraKai%20_Gym/miyagi-do-karate-logo-AEB6C17D70-seeklogo.com_xsvwub.png"
+          />
+        )}
+      </button>
+      <Text fontSize="lg" display="flex" alignItems="center" color="#FAF9F8">
+        Powered by Virginia{' '}
+      </Text>{' '}
+      <Text fontSize="2xl">🐱‍👤</Text>
     </Box>
   );
 };

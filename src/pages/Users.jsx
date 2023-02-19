@@ -30,7 +30,7 @@ const Users = () => {
             <img src={person.avatar} alt={person.name} />
             <p>{person.age} yrs</p>
             <Text fontSize="md" fontWeight="bold" textTransform="uppercase">
-              {person.premium ? 'Champion' : 'In training'}
+              {person.premium ? 'Black Belt' : 'kyu'}
             </Text>
           </figure>
         ))}
