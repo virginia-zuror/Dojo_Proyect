@@ -1,7 +1,8 @@
 import './Home.css';
 
-import { Box, Grid, Heading, Text, Image } from '@chakra-ui/react';
+import { Box, Grid, Heading, Image, Text } from '@chakra-ui/react';
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 import { userAuth } from '../Context/UserContext';
 
@@ -27,8 +28,13 @@ const Home = () => {
           Welcome to our Dojo!
         </Text>
         {!localStorage.getItem('user') && (
-          <Box>
-            <h4>Login to have complete access.</h4>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Text fontSize={18}>Login to have complete access.</Text>
             <input type="text" ref={inputRef} placeholder="Enter a nickname" />
             <button
               onClick={() => {
@@ -48,12 +54,10 @@ const Home = () => {
         alignItems="center"
         justifyContent="center"
       >
-        <Heading>Sensei John Lawrence</Heading>
-        <Image src="https://res.cloudinary.com/do7bnejaz/image/upload/v1676811403/CobraKai%20_Gym/s-2_kb9lp7.png" alt="sensei"/>
-        <Heading fontSize="3xl" fontWeight={600} padding={50}>
+        <Heading fontSize="3xl" fontWeight={600} padding={30}>
           News
         </Heading>
-        <Grid templateColumns="repeat(2, 300px)" gap={100}>
+        <Grid templateColumns="repeat(2, 300px)" gap={100} paddingBottom="20px">
           <Box
             width={300}
             display="flex"
@@ -66,7 +70,7 @@ const Home = () => {
             borderRadius={10}
           >
             <Heading fontSize="2xl" color="#FAF9F8">
-              We are open!
+              <Link to={`/article1`}>We are open!</Link>
             </Heading>
             <Text noOfLines={3} color="#FAF9F8">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dolor est,
@@ -91,7 +95,7 @@ const Home = () => {
             borderRadius={10}
           >
             <Heading fontSize="2xl" color="#FAF9F8">
-              Shotokan Karate
+              <Link to={`/article2`}>Shotokan Karate</Link>
             </Heading>
             <Text noOfLines={3} color="#FAF9F8">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dolor est,
@@ -105,6 +109,24 @@ const Home = () => {
             </Text>
           </Box>
         </Grid>
+        <Image
+          src="https://res.cloudinary.com/do7bnejaz/image/upload/v1676811403/CobraKai%20_Gym/s-2_kb9lp7.png"
+          alt="sensei"
+        />
+        <Heading fontSize="xl" fontWeight="bold">
+          Sensei John Lawrence
+        </Heading>
+        <Box
+          paddingBottom={100}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Text>Contact us:</Text>
+          <Text>(+34) 4-8-15-16-23-42</Text>
+          <Text>Crossroad Shopping Center, Atlanta, Georgia, EEUU</Text>
+        </Box>
       </Box>
     </main>
   );

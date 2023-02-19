@@ -14,6 +14,7 @@ export const UserContextProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
+    localStorage.removeItem('color');
     navigate('/');
     localStorage.removeItem('user'); //al hacer logout borra el usuario de la memoria local
   };

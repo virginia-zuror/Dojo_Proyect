@@ -13,7 +13,6 @@ const Header = () => {
   const [imageColor, setImageColor] = useState();
   const { changeTheme } = ThemeFunction();
   useEffect(() => {
-    console.log(localStorage.getItem('color'));
     localStorage.getItem('color') == 'dark' //deberia cambiar al cambiar el localstorage pero va un paso por detras
       ? setImageColor(
           'https://res.cloudinary.com/do7bnejaz/image/upload/v1676756657/CobraKai%20_Gym/cobra-kai-logo-01BAA48FFDfotoali.net-_dcngxp.png',
@@ -53,7 +52,7 @@ const Header = () => {
         )}
         {localStorage.getItem('user') && (
           <li>
-            <NavLink to={'about'}>About</NavLink>
+            <NavLink to={'about'}>Activities</NavLink>
           </li>
         )}
         {localStorage.getItem('user') && (

@@ -15,6 +15,7 @@ export const ThemeProvider = ({ children }) => {
     }
   };
   useEffect(() => {
+    localStorage.getItem('user') && setColor(localStorage.getItem('color'));
     document.body.className = color;
   }, [color]);
 
